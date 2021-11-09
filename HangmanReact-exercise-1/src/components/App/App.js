@@ -11,24 +11,24 @@ import WronglyGuessedLetters from "../WronglyGuessedLetters/WronglyGuessedLetter
 
 const wordGuessed = (word, guessedLetters) => {
   word = word.split("");
-  const remaining = word.filter(letter => !guessedLetters.includes(letter));
+  const remaining = word.filter((letter) => !guessedLetters.includes(letter));
   return remaining.length === 0;
 };
 
 const getWrongLetters = (word, guessedLetters) =>
-  guessedLetters.filter(letter => !word.split("").includes(letter));
+  guessedLetters.filter((letter) => !word.split("").includes(letter));
 
 const isGameOver = (game, wrongLetters, wordWasGuessed) =>
   wordWasGuessed || wrongLetters.length >= game.maxGuesses;
 
-const App = props => {
+const App = (props) => {
   const game = props.game;
   const wordWasGuessed = wordGuessed(game.chosenWord, game.guessedLetters);
   const wrongLetters = getWrongLetters(game.chosenWord, game.guessedLetters);
   const gameIsOver = isGameOver(game, wrongLetters, wordWasGuessed);
 
   const gameOver = gameIsOver ? (
-    <GameOver chosenWord={game.chosenWord} wordGuesed={wordWasGuessed} />
+    <GameOver chosenWord={game.chosenWord} wordGuessed={wordWasGuessed} />
   ) : null;
 
   return (

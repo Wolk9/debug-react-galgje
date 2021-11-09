@@ -2,7 +2,7 @@ import React from "react";
 import win from "../../assets/win.gif";
 import lose from "../../assets/lose.gif";
 
-const GameOver = props => {
+const GameOver = (props) => {
   const winResult = (
     <div className="win">
       <h2>You won!</h2>
@@ -17,7 +17,6 @@ const GameOver = props => {
       <p>The chosen word was: {props.chosenWord}</p>
     </div>
   );
-
   return props.wordGuessed ? winResult : loseResult;
 };
 

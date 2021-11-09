@@ -27,7 +27,7 @@ class AppContainer extends React.Component {
     return list[index];
   }
 
-  restartGameHandler = event => {
+  restartGameHandler = (event) => {
     this.setState({
       chosenWord: this.chooseWord(wordList),
       guessedLetters: [],
@@ -35,13 +35,13 @@ class AppContainer extends React.Component {
     });
   };
 
-  chosenLetterHandler = event => {
+  chosenLetterHandler = (event) => {
     const newState = { ...this.state };
     newState.currentChosenLetter = event.target.value;
     this.setState(newState);
   };
 
-  guessLetterHandler = event => {
+  guessLetterHandler = (event) => {
     const inputGiven = this.state.currentChosenLetter.length > 0;
     const newLetter = !this.state.guessedLetters.includes(
       this.state.currentChosenLetter
